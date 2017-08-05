@@ -7,7 +7,7 @@ import java.util.List;
 
 
 @AutoValue
-abstract class InformeSummariesResponseModel {
+public abstract class InformeSummariesResponseModel {
 
     static InformeSummariesResponseModel create(final List<InformeSummary> informeSummaries) {
         return new AutoValue_InformeSummariesResponseModel(informeSummaries);

@@ -2,7 +2,7 @@ package ar.com.sistac.usecases.informeSummaries;
 
 
 public interface InformeSummariesOutputBoundary {
-    InformeSummariesResponseModel responseModel();
+    InformeSummariesResponseModel getResponseModel();
 
     void setResponseModel(final InformeSummariesResponseModel informeSummariesResponseModel);
 }

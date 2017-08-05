@@ -3,6 +3,7 @@ package ar.com.sistac.usecases.informeSummaries;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -28,17 +29,13 @@ public class InformeSummariesUseCase implements InformeSummariesInputBoundary {
         presenter.setResponseModel(InformeSummariesResponseModel.create(informeSummaries));
     }
 
-    private List<InformeSummary> getInformeSummaries(List<Informe> informes) {
-        final List<InformeSummary> informeSummaries = new ArrayList<>();
+    private List<InformeSummary> getInformeSummaries(final List<Informe> informes) {
 
-        //TODO: use streams
-        for (final Informe informe : informes) {
-            informeSummaries.add(InformeSummary.builder()
-                    .setAuditor(informe.getEntidadAuditora())
-                    .setDireccion(informe.getCalle())
-                    .setCit(informe.getCit())
-                    .build());
-        }
-        return informeSummaries;
+        return informes.stream().map(informe -> InformeSummary.builder()
+                .setAuditor(informe.getEntidadAuditora())
+                .setDireccion(informe.getCalle())
+                .setCit(informe.getCit())
+                .build())
+                .collect(Collectors.toList());
     }
 }
