@@ -19,8 +19,8 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/groovy" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/main" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/test" isTestSource="true" />
@@ -28,17 +28,18 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/build/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/build/libs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="groovy-all-2.4.10" level="project" />
+    <orderEntry type="library" exported="" name="groovy-all-2.4.12" level="project" />
     <orderEntry type="library" exported="" name="javax.inject-1" level="project" />
-    <orderEntry type="library" exported="" name="auto-value-1.4.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="spock-core-1.1-groovy-2.4" level="project" />
+    <orderEntry type="library" exported="" name="auto-value-1.5" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-core-1.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="spock-core-1.1-groovy-2.4" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="junit-4.12" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="byte-buddy-1.6.5" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="objenesis-2.5.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="byte-buddy-1.7.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="objenesis-2.6" level="project" />
   </component>
 </module>

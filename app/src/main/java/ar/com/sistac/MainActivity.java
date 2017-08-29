@@ -1,4 +1,4 @@
-package sistacmobile.com.ar.sistacmobiee;
+package ar.com.sistac;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

@@ -3,16 +3,16 @@ package ar.com.sistac.usecases.informeSummaries;
 import com.google.auto.value.AutoValue;
 
 @AutoValue
-abstract class InformeSummary {
+public abstract class InformeSummary {
     static Builder builder() {
         return new AutoValue_InformeSummary.Builder();
     }
 
-    abstract Long cit();
+    public abstract Long cit();
 
-    abstract String auditor();
+    public abstract String auditor();
 
-    abstract String direccion();
+    public abstract String direccion();
 
     @AutoValue.Builder
     abstract static class Builder {

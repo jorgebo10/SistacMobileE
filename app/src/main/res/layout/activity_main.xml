@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="sistacmobile.com.ar.sistacmobiee.MainActivity">
+    tools:context="sistacmobile.com.ar.sistacmobiee.ar.com.sistac.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"

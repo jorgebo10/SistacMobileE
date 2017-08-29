@@ -13,5 +13,5 @@ public abstract class InformeSummariesResponseModel {
         return new AutoValue_InformeSummariesResponseModel(informeSummaries);
     }
 
-    abstract List<InformeSummary> informeSummaries();
+    public abstract List<InformeSummary> informeSummaries();
 }
