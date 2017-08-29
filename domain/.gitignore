@@ -1,3 +1,4 @@
 /build
-.domain.iml
-misc.xml
+domain.iml
+.idea
+!/domain.iml
