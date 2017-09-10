@@ -2,34 +2,24 @@ package ar.com.sistac.informeSummaries;
 
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import ar.com.sistac.usecases.informeSummaries.InformeSummary;
+import ar.com.sistac.usecases.informeSummaries.InformeSummaryResponseModel;
 import auto.parcel.AutoParcel;
 
 @AutoParcel
 public abstract class InformeSummariesViewModel implements Parcelable {
-    public abstract String cit();
 
-    public abstract String identificacion();
+    public abstract List<InformeSummaryViewModel> viewModels();
 
-    public abstract String anioFabricacion();
+    public static InformeSummariesViewModel create(final List<InformeSummaryResponseModel> informeSummaries) {
 
-    public abstract String calle();
+        List<InformeSummaryViewModel> informeSummaryViewModels = new ArrayList<>();
 
-    public abstract String localidad();
-
-    public abstract String provincia();
-
-    public abstract String entidadAuditora();
-
-    public abstract String operador();
-
-    public abstract String inspector();
-
-    public abstract String fechaCreacion();
-
-    public static InformeSummariesViewModel create(final List<InformeSummary> informeSummaries) {
-        return null;
+        for (InformeSummaryResponseModel responseModel : informeSummaries) {
+            informeSummaryViewModels.add(InformeSummaryViewModel.create(responseModel));
+        }
+        return new AutoParcel_InformeSummariesViewModel(informeSummaryViewModels);
     }
 }

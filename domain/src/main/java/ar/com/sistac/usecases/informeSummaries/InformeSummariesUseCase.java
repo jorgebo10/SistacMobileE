@@ -1,9 +1,10 @@
 package ar.com.sistac.usecases.informeSummaries;
 
 
-import java.util.ArrayList;
+import com.annimon.stream.Collectors;
+import com.annimon.stream.Stream;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -24,14 +25,15 @@ public class InformeSummariesUseCase implements InformeSummariesInputBoundary {
 
         final List<Informe> informes = informeRepository.findInformes();
 
-        final List<InformeSummary> informeSummaries = getInformeSummaries(informes);
+        final List<InformeSummaryResponseModel> informeSummaries = getInformeSummaries(informes);
 
         presenter.setResponseModel(InformeSummariesResponseModel.create(informeSummaries));
     }
 
-    private List<InformeSummary> getInformeSummaries(final List<Informe> informes) {
+    private List<InformeSummaryResponseModel> getInformeSummaries(final List<Informe> informes) {
 
-        return informes.stream().map(informe -> InformeSummary.builder()
+        return Stream.of(informes)
+                .map(informe -> InformeSummaryResponseModel.builder()
                 .setAuditor(informe.getEntidadAuditora())
                 .setDireccion(informe.getCalle())
                 .setCit(informe.getCit())

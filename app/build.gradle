@@ -1,5 +1,13 @@
 apply plugin: 'com.android.application'
 
+def support = '25.3.0'
+def dart = '2.0.2'
+def henson = '2.0.2'
+def dagger = '2.11'
+def cupboard = '2.2.0'
+def autoParcel = '0.3.1'
+def butterKnife = '8.8.1'
+
 android {
     compileSdkVersion 25
     buildToolsVersion "26.0.0"
@@ -21,14 +29,20 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.1.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
-    compile 'com.github.frankiesardo:auto-parcel:0.3.1'
+    compile "com.android.support:appcompat-v7:${support}"
+    compile "com.jakewharton:butterknife:${butterKnife}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butterKnife}"
 
-    testCompile 'junit:junit:4.12'
+    compile "com.android.support:recyclerview-v7:${support}"
+    compile "com.f2prateek.dart:dart:${dart}"
+    provided "com.f2prateek.dart:dart-processor:${dart}"
+    compile "com.f2prateek.dart:henson:${henson}"
+    provided "com.f2prateek.dart:henson-processor:${henson}"
+    compile "com.google.dagger:dagger:${dagger}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${dagger}"
+    compile "nl.qbusict:cupboard:${cupboard}"
+    compile "com.github.frankiesardo:auto-parcel:${autoParcel}"
+    annotationProcessor "com.github.frankiesardo:auto-parcel-processor:${autoParcel}"
+
     compile project(path: ':domain')
-    annotationProcessor 'com.github.frankiesardo:auto-parcel-processor:0.3.1'
 }

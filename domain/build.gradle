@@ -1,27 +1,24 @@
 apply plugin: 'java'
 apply plugin: "groovy"
 apply plugin: "idea"
-
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: "net.ltgt.apt"
 
 buildscript {
     repositories {
+        mavenCentral()
         maven {
             url "https://plugins.gradle.org/m2/"
         }
     }
+
     dependencies {
         classpath "net.ltgt.gradle:gradle-apt-plugin:0.10"
+        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
     }
 }
 
-apply plugin: "net.ltgt.apt"
 
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-}
-
-def sourceCompatibility = "1.7"
-def targetCompatibility = "1.7"
 def javaxAnnotationVersion = '1.0'
 def javaxInjectVersion = '1'
 def groovyAll = '2.4.12'
@@ -32,14 +29,15 @@ def byteBuddy = '1.7.3'
 def objEnesis = '2.6'
 
 repositories {
-    // Spock releases are available from Maven Central
     mavenCentral()
-    // Spock snapshots are available from the Sonatype OSS snapshot repository
     maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
 }
 
 dependencies {
-    // mandatory dependencies for using Spock
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.annimon:stream:1.1.8'
+
     compile "org.codehaus.groovy:groovy-all:${groovyAll}"
 
     compile "javax.inject:javax.inject:${javaxInjectVersion}"
@@ -47,12 +45,9 @@ dependencies {
     compileOnly "com.google.auto.value:auto-value:${autoValue}"
     apt "com.google.auto.value:auto-value:${autoValue}"
 
-    // optional dependencies for using Spock
-    testCompile "org.hamcrest:hamcrest-core:${hamcrestCore}" // only necessary if Hamcrest matchers are used
+    testCompile "org.hamcrest:hamcrest-core:${hamcrestCore}"
     testCompile "org.spockframework:spock-core:${spockCore}"
 
     testRuntime "net.bytebuddy:byte-buddy:${byteBuddy}"
-    // allows mocking of classes (in addition to interfaces)
     testRuntime "org.objenesis:objenesis:${objEnesis}"
-    // allows mocking of classes without default constructor (together with CGLIB)
 }

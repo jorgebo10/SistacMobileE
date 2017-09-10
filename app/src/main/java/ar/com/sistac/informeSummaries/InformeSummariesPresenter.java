@@ -17,9 +17,8 @@ public class InformeSummariesPresenter implements InformeSummariesOutputBoundary
         this.informeSummariesUseCase = informeSummariesUseCase;
     }
 
-    @Override
-    public InformeSummariesResponseModel getResponseModel() {
-        return null; //TODO: check if this method required
+    public InformeSummariesViewModel getViewModel() {
+        return viewModel;
     }
 
     @Override
