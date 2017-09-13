@@ -25,3 +25,8 @@ src/main/groovy/
 src/test/java/
 /.idea/misc.xml
 /SistacMobileE.iml
+src/main/res/drawable/
+/.idea
+/app/app.iml
+/domain/domain.iml
+
