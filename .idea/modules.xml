@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/SistacMobileE.iml" filepath="$PROJECT_DIR$/SistacMobileE.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/domain/domain.iml" filepath="$PROJECT_DIR$/domain/domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/usecases/usecases.iml" filepath="$PROJECT_DIR$/usecases/usecases.iml" />
     </modules>
   </component>
 </project>

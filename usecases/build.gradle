@@ -1,0 +1,53 @@
+apply plugin: 'java'
+apply plugin: "groovy"
+apply plugin: "idea"
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: "net.ltgt.apt"
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath "net.ltgt.gradle:gradle-apt-plugin:0.10"
+        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+    }
+}
+
+def javaxAnnotationVersion = '1.0'
+def javaxInjectVersion = '1'
+def groovyAll = '2.4.12'
+def spockCore = '1.1-groovy-2.4'
+def autoValue = '1.5'
+def hamcrestCore = '1.3'
+def byteBuddy = '1.7.3'
+def objEnesis = '2.6'
+
+repositories {
+    mavenCentral()
+    maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(path: ':domain')
+
+    compile 'com.annimon:stream:1.1.8'
+
+    compile "org.codehaus.groovy:groovy-all:${groovyAll}"
+
+    compile "javax.inject:javax.inject:${javaxInjectVersion}"
+
+    compileOnly "com.google.auto.value:auto-value:${autoValue}"
+    apt "com.google.auto.value:auto-value:${autoValue}"
+
+    testCompile "org.hamcrest:hamcrest-core:${hamcrestCore}"
+    testCompile "org.spockframework:spock-core:${spockCore}"
+
+    testRuntime "net.bytebuddy:byte-buddy:${byteBuddy}"
+    testRuntime "org.objenesis:objenesis:${objEnesis}"
+}

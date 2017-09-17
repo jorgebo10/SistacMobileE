@@ -45,4 +45,5 @@ dependencies {
     annotationProcessor "com.github.frankiesardo:auto-parcel-processor:${autoParcel}"
 
     compile project(path: ':domain')
+    compile project(path: ':usecases')
 }

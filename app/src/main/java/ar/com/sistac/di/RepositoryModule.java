@@ -6,8 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import javax.inject.Singleton;
 
 import ar.com.sistac.data.CupboardDBHelper;
-import ar.com.sistac.data.informes.InformeRepositoryCupboardImpl;
-import ar.com.sistac.repositories.InformeRepository;
+import ar.com.sistac.data.audits.AuditRepositoryCupboardImpl;
+import ar.com.sistac.model.audit.AuditRepository;
 import dagger.Module;
 import dagger.Provides;
 
@@ -16,8 +16,8 @@ public class RepositoryModule {
 
     @Provides
     @Singleton
-    public InformeRepository provideInformeRepository(final SQLiteDatabase db) {
-        return new InformeRepositoryCupboardImpl(db);
+    public AuditRepository provideAuditRepository(final SQLiteDatabase db) {
+        return new AuditRepositoryCupboardImpl(db);
     }
     @Provides
     @Singleton

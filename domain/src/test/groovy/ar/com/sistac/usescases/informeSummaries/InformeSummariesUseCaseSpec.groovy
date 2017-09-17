@@ -1,6 +1,6 @@
 package ar.com.sistac.usescases.informeSummaries
 
-import ar.com.sistac.entities.Informe
+import ar.com.sistac.model.Informe
 import ar.com.sistac.repositories.InformeRepository
 import ar.com.sistac.usecases.informeSummaries.InformeSummariesOutputBoundary
 import ar.com.sistac.usecases.informeSummaries.InformeSummariesUseCase;

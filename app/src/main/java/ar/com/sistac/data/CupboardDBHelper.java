@@ -4,7 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import ar.com.sistac.entities.Informe;
+
+import ar.com.sistac.model.audit.Audit;
 
 import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
@@ -14,7 +15,7 @@ public class CupboardDBHelper extends SQLiteOpenHelper {
 
     static {
         // register our models
-        cupboard().register(Informe.class);
+        cupboard().register(Audit.class);
     }
 
     public CupboardDBHelper(Context context) {
