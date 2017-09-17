@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".informeSummaries.InformeSummariesActivity"></activity>
+        <activity android:name=".auditSummaries.AuditSummariesActivity"></activity>
     </application>
 
 

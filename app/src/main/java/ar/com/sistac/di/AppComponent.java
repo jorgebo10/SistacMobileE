@@ -10,6 +10,6 @@ import dagger.Component;
 @Singleton
 @Component(modules = {AppModule.class, RepositoryModule.class})
 public interface AppComponent {
-    InformeSummariesFragmentComponent plus(final InformeSummariesFragmentModule module);
+    AuditSummariesFragmentComponent plus(final AuditSummariesFragmentModule module);
     Application application();
 }

@@ -1,4 +1,4 @@
-package ar.com.sistac.informeSummaries;
+package ar.com.sistac.auditSummaries;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,43 +13,43 @@ import javax.inject.Inject;
 
 import ar.com.sistac.R;
 import ar.com.sistac.SistacApplication;
-import ar.com.sistac.di.InformeSummariesFragmentModule;
+import ar.com.sistac.di.AuditSummariesFragmentModule;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class InformeSummariesFragment extends Fragment {
-    @BindView(R.id.informe_recycler_view)
+public class AuditSummariesFragment extends Fragment {
+    @BindView(R.id.audit_recycler_view)
     RecyclerView recyclerView;
     @Inject
-    InformeSummariesAdapter informeSummariesAdapter;
+    AuditSummariesAdapter auditSummariesAdapter;
     @Inject
-    InformeSummariesPresenter informeSummariesPresenter;
+    AuditSummariesPresenter auditSummariesPresenter;
 
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, final @Nullable ViewGroup container,
                              final @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final View view = inflater.inflate(R.layout.fragment_informe_list, container, false);
+        final View view = inflater.inflate(R.layout.fragment_audit_list, container, false);
         ButterKnife.bind(this, view);
 
         SistacApplication.get(getActivity())
                 .getAppComponent()
-                .plus(new InformeSummariesFragmentModule(this))
+                .plus(new AuditSummariesFragmentModule(this))
                 .inject(this);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(informeSummariesAdapter);
+        recyclerView.setAdapter(auditSummariesAdapter);
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        informeSummariesPresenter.summarizeInformes();
-        InformeSummariesViewModel informeSummariesViewModel = informeSummariesPresenter.getViewModel();
-        informeSummariesAdapter.setInformes(informeSummariesViewModel.viewModels());
-        informeSummariesAdapter.notifyDataSetChanged();
+        auditSummariesPresenter.summarizeAudits();
+        AuditSummariesViewModel auditSummariesViewModel = auditSummariesPresenter.getViewModel();
+        auditSummariesAdapter.setAudits(auditSummariesViewModel.getAuditSummariesResponseModel());
+        auditSummariesAdapter.notifyDataSetChanged();
     }
 
     @Override
