@@ -1,4 +1,4 @@
-package ar.com.sistac.model.checklist;
+package ar.com.sistac.model.audit.checklist;
 
 public enum IdTanque {
     PLACA,

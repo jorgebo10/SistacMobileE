@@ -3,8 +3,8 @@ package ar.com.sistac.model.audit;
 
 import java.util.Date;
 
-import ar.com.sistac.model.checklist.Checklist;
-import ar.com.sistac.model.measurement.EnvolventeMeasurementRecord;
+import ar.com.sistac.model.audit.checklist.Checklist;
+import ar.com.sistac.model.audit.envolvente.EnvolventeMeasurementRecord;
 import ar.com.sistac.model.tank.Tank;
 
 public class Audit {

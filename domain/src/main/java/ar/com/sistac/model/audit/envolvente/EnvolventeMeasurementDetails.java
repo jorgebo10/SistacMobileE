@@ -1,4 +1,4 @@
-package ar.com.sistac.model.measurement;
+package ar.com.sistac.model.audit.envolvente;
 
 import com.google.auto.value.AutoValue;
 
