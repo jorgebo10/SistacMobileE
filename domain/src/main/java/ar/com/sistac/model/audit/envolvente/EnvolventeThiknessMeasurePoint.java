@@ -4,14 +4,14 @@ import com.google.auto.value.AutoValue;
 
 @AutoValue
 public abstract class EnvolventeThiknessMeasurePoint {
-    public static EnvolventeThiknessMeasurePoint create(Integer virola, Integer generatriz, Integer measure) {
-        return new AutoValue_EnvolventeThiknessMeasurePoint(virola, generatriz, measure);
+    public static EnvolventeThiknessMeasurePoint create(Integer virolaNumber, Integer generatrizNumber, Integer measureNumber) {
+        return new AutoValue_EnvolventeThiknessMeasurePoint(virolaNumber, generatrizNumber, measureNumber);
     }
 
-    public abstract Integer virola();
+    public abstract Integer virolaNumber();
 
-    public abstract Integer generatriz();
+    public abstract Integer generatrizNumber();
 
-    public abstract Integer measure();
+    public abstract Integer measureNumber();
 
 }

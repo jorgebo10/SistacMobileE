@@ -24,22 +24,22 @@ public class EnvolventeMeasurementRecord {
         return this.envolventeMeasurementDetails;
     }
 
-    public Map getEnvolventeThiknessMeasurementList() {
+    public Map<EnvolventeThiknessMeasurePoint, Integer> getEnvolventeThiknessMeasurementList() {
         return Collections.unmodifiableMap(this.envolventeThiknessMeasurementList);
     }
 
     public void add(final EnvolventeThiknessMeasurePoint point, final Integer value) {
 
-        if (point.generatriz() > envolventeMeasurementDetails.maxGeneratrices())  {
+        if (point.generatrizNumber() > envolventeMeasurementDetails.maxGeneratrices())  {
             throw new IllegalArgumentException("Genetriz number is grater than allowed");
         }
 
-        if (point.virola() > envolventeMeasurementDetails.maxVirolas())  {
+        if (point.virolaNumber() > envolventeMeasurementDetails.maxVirolas())  {
             throw new IllegalArgumentException("Virola number is grater than allowed");
         }
 
-        if (point.measure() > envolventeMeasurementDetails.maxMeasurements())  {
-            throw new IllegalArgumentException("measure number is grater than allowed");
+        if (point.measureNumber() > envolventeMeasurementDetails.maxMeasurements())  {
+            throw new IllegalArgumentException("measureNumber number is grater than allowed");
         }
 
         this.envolventeThiknessMeasurementList.put(point, value);
