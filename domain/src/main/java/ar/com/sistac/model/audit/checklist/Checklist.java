@@ -6,18 +6,18 @@ import java.util.Map;
 
 public class Checklist {
     private Long id;
-    private Map<Enum, Object> items;
+    private Map<String, Boolean> items;
 
     public Checklist(final Long id) {
         this.id = id;
         items = new HashMap<>();
     }
 
-    public Map getItems() {
+    public Map<String, Boolean> getItems() {
         return Collections.unmodifiableMap(items);
     }
 
-    public void addItem(final Enum key, final Object value) {
+    public void addItem(final String key, final Boolean value) {
         items.put(key, value);
     }
 }
