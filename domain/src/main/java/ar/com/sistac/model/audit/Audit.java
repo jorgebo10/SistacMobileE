@@ -4,32 +4,81 @@ package ar.com.sistac.model.audit;
 import java.util.Date;
 
 import ar.com.sistac.model.audit.checklist.Checklist;
-import ar.com.sistac.model.audit.envolvente.EnvolventeMeasurementRecord;
-import ar.com.sistac.model.tank.Tank;
+import ar.com.sistac.model.audit.measure.MeasurePoint;
+import ar.com.sistac.model.audit.measure.MeasureThiknessPoint;
+import ar.com.sistac.model.tank.TankId;
+
+import static ar.com.sistac.model.audit.measure.ThicknessType.ENVOLVENTE;
+import static ar.com.sistac.model.audit.measure.ThicknessType.PISO;
+import static ar.com.sistac.model.audit.measure.ThicknessType.TECHO;
 
 public class Audit {
-    private Long id;
-    private Tank tank;
+    private AuditId auditId;
+    private TankId tankId;
     private Date auditionDate;
-    private Stakeholder auditor;
-    private Stakeholder operator;
+    private Auditor auditor;
     private Checklist checklist;
-    private EnvolventeMeasurementRecord envolventeMeasurementRecord;
+    //auditspec    private Integer maxGeneratrices;
+    private Integer maxVirolas;
+    private Integer maxGeneratrices;
+    private Integer maxMeasureNumber;
+    private Integer maxPisoMeasureNumber;
+    private Integer maxPisoSheet;
+    private Integer maxTechoMeasureNumber;
+    private Integer maxTechoSheet;
 
-    public Long getId() {
-        return id;
+
+    public Audit(final TankId tankId, final Date date, final Auditor auditor) {
+        this.tankId = tankId;
+        this.auditionDate = date;
+        this.auditor = auditor;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public AuditId getAuditId() {
+        return auditId;
     }
 
-    public Tank getTank() {
-        return tank;
+    public MeasureThiknessPoint envolventeThiknessForMeasurePoint(final Integer thikness, final MeasurePoint measurePoint) {
+
+        if (measurePoint.generatrizNumber() > maxGeneratrices)  {
+            throw new IllegalArgumentException("Genetriz number is grater than allowed");
+        }
+
+        if (measurePoint.virolaNumber() > maxVirolas)  {
+            throw new IllegalArgumentException("Virola number is grater than allowed");
+        }
+
+        if (measurePoint.measureNumber() > maxMeasureNumber)  {
+            throw new IllegalArgumentException("measureNumber number is grater than allowed");
+        }
+
+        return new MeasureThiknessPoint(auditId, ENVOLVENTE, measurePoint, thikness);
     }
 
-    public void setTank(Tank tank) {
-        this.tank = tank;
+    public MeasureThiknessPoint pisoThiknessForMeasurePoint(final Integer thikness, final MeasurePoint measurePoint) {
+
+        if (measurePoint.virolaNumber() > maxPisoSheet)  {
+            throw new IllegalArgumentException("Piso sheet number is grater than allowed");
+        }
+
+        if (measurePoint.measureNumber() > maxPisoMeasureNumber)  {
+            throw new IllegalArgumentException("measureNumber number is grater than allowed");
+        }
+
+        return new MeasureThiknessPoint(auditId, PISO, measurePoint, thikness);
+    }
+
+    public MeasureThiknessPoint techoThiknessForMeasurePoint(final Integer thikness, final MeasurePoint measurePoint) {
+
+        if (measurePoint.virolaNumber() > maxTechoSheet)  {
+            throw new IllegalArgumentException("Techo sheet number is grater than allowed");
+        }
+
+        if (measurePoint.measureNumber() > maxTechoMeasureNumber)  {
+            throw new IllegalArgumentException("measureNumber number is grater than allowed");
+        }
+
+        return new MeasureThiknessPoint(auditId, TECHO, measurePoint, thikness);
     }
 
     public Date getAuditionDate() {
@@ -40,20 +89,12 @@ public class Audit {
         this.auditionDate = auditionDate;
     }
 
-    public Stakeholder getAuditor() {
+    public Auditor getAuditor() {
         return auditor;
     }
 
-    public void setAuditor(Stakeholder auditor) {
+    public void setAuditor(Auditor auditor) {
         this.auditor = auditor;
-    }
-
-    public Stakeholder getOperator() {
-        return operator;
-    }
-
-    public void setOperator(Stakeholder operator) {
-        this.operator = operator;
     }
 
     public Checklist getChecklist() {
@@ -62,13 +103,5 @@ public class Audit {
 
     public void setChecklist(Checklist checklist) {
         this.checklist = checklist;
-    }
-
-    public EnvolventeMeasurementRecord getEnvolventeMeasurementRecord() {
-        return envolventeMeasurementRecord;
-    }
-
-    public void setEnvolventeMeasurementRecord(EnvolventeMeasurementRecord envolventeMeasurementRecord) {
-        this.envolventeMeasurementRecord = envolventeMeasurementRecord;
     }
 }

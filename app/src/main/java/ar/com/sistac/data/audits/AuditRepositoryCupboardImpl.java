@@ -10,7 +10,7 @@ import javax.inject.Inject;
 
 import ar.com.sistac.model.audit.Audit;
 import ar.com.sistac.model.audit.AuditRepository;
-import ar.com.sistac.model.audit.Stakeholder;
+import ar.com.sistac.model.audit.Auditor;
 import ar.com.sistac.model.tank.Address;
 import ar.com.sistac.model.tank.Tank;
 
@@ -36,13 +36,13 @@ public class AuditRepositoryCupboardImpl implements AuditRepository {
                     .setStreet("Avenida lacrose")
                     .build());
             audit1.setTank(tank1);
-            audit1.setAuditor(Stakeholder.builder()
-                    .setName("jorge")
-                    .setSurname("Bo")
+            audit1.setAuditor(Auditor.builder()
+                    .name("jorge")
+                    .surname("Bo")
                     .build());
-            audit1.setOperator(Stakeholder.builder()
-                    .setName("juan")
-                    .setSurname("Bo")
+            audit1.setOperator(Auditor.builder()
+                    .name("juan")
+                    .surname("Bo")
                     .build());
 
             Audit audit2 = new Audit();
@@ -55,13 +55,13 @@ public class AuditRepositoryCupboardImpl implements AuditRepository {
                     .setStreet("Avenida martin")
                     .build());
             audit2.setTank(tank2);
-            audit2.setAuditor(Stakeholder.builder()
-                    .setName("pepe")
-                    .setSurname("Bo")
+            audit2.setAuditor(Auditor.builder()
+                    .name("pepe")
+                    .surname("Bo")
                     .build());
-            audit2.setOperator(Stakeholder.builder()
-                    .setName("pepe")
-                    .setSurname("Bo")
+            audit2.setOperator(Auditor.builder()
+                    .name("pepe")
+                    .surname("Bo")
                     .build());
 
             audits.add(audit1);

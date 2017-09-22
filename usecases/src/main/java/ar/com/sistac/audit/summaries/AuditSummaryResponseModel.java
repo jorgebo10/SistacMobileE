@@ -4,7 +4,7 @@ import com.google.auto.value.AutoValue;
 
 import java.util.Date;
 
-import ar.com.sistac.model.audit.Stakeholder;
+import ar.com.sistac.model.audit.Auditor;
 import ar.com.sistac.model.tank.Address;
 
 @AutoValue
@@ -15,7 +15,7 @@ public abstract class AuditSummaryResponseModel {
 
     public abstract String cit();
 
-    public abstract Stakeholder auditor();
+    public abstract Auditor auditor();
 
     public abstract Date date();
 
@@ -25,7 +25,7 @@ public abstract class AuditSummaryResponseModel {
     abstract static class Builder {
         abstract Builder setCit(final String cit);
 
-        abstract Builder setAuditor(final Stakeholder auditor);
+        abstract Builder setAuditor(final Auditor auditor);
 
         abstract Builder setAddress(final Address direccion);
 
