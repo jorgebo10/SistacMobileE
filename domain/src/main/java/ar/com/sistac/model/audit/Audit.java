@@ -18,7 +18,6 @@ public class Audit {
     private Date auditionDate;
     private Auditor auditor;
     private Checklist checklist;
-    //auditspec    private Integer maxGeneratrices;
     private Integer maxVirolas;
     private Integer maxGeneratrices;
     private Integer maxMeasureNumber;
@@ -38,7 +37,7 @@ public class Audit {
         return auditId;
     }
 
-    public MeasureThiknessPoint envolventeThiknessForMeasurePoint(final Integer thikness, final MeasurePoint measurePoint) {
+    public MeasureThiknessPoint newEnvolventeThiknessForMeasurePoint(final Integer thikness, final MeasurePoint measurePoint) {
 
         if (measurePoint.generatrizNumber() > maxGeneratrices)  {
             throw new IllegalArgumentException("Genetriz number is grater than allowed");
@@ -55,7 +54,7 @@ public class Audit {
         return new MeasureThiknessPoint(auditId, ENVOLVENTE, measurePoint, thikness);
     }
 
-    public MeasureThiknessPoint pisoThiknessForMeasurePoint(final Integer thikness, final MeasurePoint measurePoint) {
+    public MeasureThiknessPoint newPisoThiknessForMeasurePoint(final Integer thikness, final MeasurePoint measurePoint) {
 
         if (measurePoint.virolaNumber() > maxPisoSheet)  {
             throw new IllegalArgumentException("Piso sheet number is grater than allowed");
@@ -68,7 +67,7 @@ public class Audit {
         return new MeasureThiknessPoint(auditId, PISO, measurePoint, thikness);
     }
 
-    public MeasureThiknessPoint techoThiknessForMeasurePoint(final Integer thikness, final MeasurePoint measurePoint) {
+    public MeasureThiknessPoint newTechoThiknessForMeasurePoint(final Integer thikness, final MeasurePoint measurePoint) {
 
         if (measurePoint.virolaNumber() > maxTechoSheet)  {
             throw new IllegalArgumentException("Techo sheet number is grater than allowed");

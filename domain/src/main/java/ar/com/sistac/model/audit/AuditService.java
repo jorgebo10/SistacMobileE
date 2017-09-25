@@ -3,6 +3,8 @@ package ar.com.sistac.model.audit;
 
 import java.util.Date;
 
+import javax.inject.Inject;
+
 import ar.com.sistac.model.tank.Tank;
 import ar.com.sistac.model.tank.TankId;
 import ar.com.sistac.model.tank.TankRepository;
@@ -13,6 +15,7 @@ public class AuditService {
 
     private final AuditRepository auditRepository;
 
+    @Inject
     public AuditService(TankRepository tankRepository, AuditRepository auditRepository) {
         this.tankRepository = tankRepository;
         this.auditRepository = auditRepository;
